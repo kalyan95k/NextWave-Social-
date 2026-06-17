@@ -156,6 +156,117 @@ body {
 }
 
 /* ==========================
+   UNLIMITED SYMBOL
+========================== */
+
+.unlimited-wrapper{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:40px;
+}
+
+.unlimited-symbol{
+    font-size:180px;
+    font-weight:700;
+    line-height:1;
+
+    background:linear-gradient(
+        90deg,
+        #00e5ff,
+        #7d5fff,
+        #ff4fd8,
+        #00e5ff
+    );
+
+    background-size:300% 300%;
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    animation:
+        gradientMove 6s ease infinite,
+        floatUpDown 4s ease-in-out infinite;
+
+    position:relative;
+
+    padding:10px 35px;
+
+    border-radius:40px;
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+        0 0 20px rgba(0,229,255,.25),
+        0 0 40px rgba(125,95,255,.20),
+        inset 0 0 25px rgba(255,255,255,.08);
+
+    transition:all .4s ease;
+}
+
+.unlimited-symbol::before{
+    content:'';
+    position:absolute;
+    inset:-8px;
+    border-radius:45px;
+
+    background:linear-gradient(
+        90deg,
+        rgba(0,229,255,.15),
+        rgba(125,95,255,.15),
+        rgba(255,79,216,.15)
+    );
+
+    filter:blur(20px);
+    z-index:-1;
+}
+
+.unlimited-symbol:hover{
+    transform:scale(1.08);
+
+    box-shadow:
+        0 0 30px rgba(0,229,255,.5),
+        0 0 60px rgba(125,95,255,.45),
+        0 0 90px rgba(255,79,216,.35);
+}
+
+/* Animated Gradient */
+@keyframes gradientMove{
+    0%{
+        background-position:0% 50%;
+    }
+    50%{
+        background-position:100% 50%;
+    }
+    100%{
+        background-position:0% 50%;
+    }
+}
+
+/* Floating Effect */
+@keyframes floatUpDown{
+    0%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-12px);
+    }
+    100%{
+        transform:translateY(0);
+    }
+}
+
+/* Mobile */
+@media(max-width:768px){
+    .unlimited-symbol{
+        font-size:110px;
+    }
+}
+
+/* ==========================
    HERO
 ========================== */
 
